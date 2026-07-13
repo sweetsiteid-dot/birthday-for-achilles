@@ -1,0 +1,533 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(
+        180deg,
+        #2b0000 0%,
+        #5b0000 50%,
+        #8b0000 100%
+    );
+    color:white;
+    overflow-x:hidden;
+}
+
+/* HIDDEN */
+
+.hidden{
+    display:none;
+}
+
+/* FLOATING HEARTS */
+
+#hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+}
+
+.heart{
+    position:absolute;
+    font-size:20px;
+    animation:floatUp linear forwards;
+    opacity:.8;
+}
+
+@keyframes floatUp{
+
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.8;
+    }
+
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+
+}
+
+/* PIN SCREEN */
+
+#pinScreen{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+        135deg,
+        #320000,
+        #8b0000
+    );
+    z-index:9999;
+}
+
+.pin-box{
+    width:90%;
+    max-width:380px;
+    padding:35px 25px;
+    text-align:center;
+    border-radius:30px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.pin-box h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.pin-box h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.pin-box p{
+    opacity:.8;
+    margin-bottom:20px;
+}
+
+#pinInput{
+    width:100%;
+    height:60px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    text-align:center;
+    font-size:1.6rem;
+    letter-spacing:8px;
+    color:white;
+    background:rgba(255,255,255,.15);
+    margin-bottom:20px;
+}
+
+#pinInput::placeholder{
+    color:rgba(255,255,255,.5);
+}
+
+.keypad{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.keypad button{
+    height:58px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    font-size:1.1rem;
+    color:white;
+    background:rgba(255,255,255,.15);
+    transition:.3s;
+}
+
+.keypad button:hover{
+    background:#ff4d6d;
+    transform:scale(1.05);
+}
+
+/* WEBSITE */
+
+#website{
+    position:relative;
+    z-index:2;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.hero-card{
+    width:100%;
+    max-width:700px;
+    text-align:center;
+    padding:50px 35px;
+    border-radius:35px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.mini-title{
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:.8rem;
+    opacity:.7;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:4rem;
+    margin-bottom:10px;
+}
+
+.hero h2{
+    font-size:2rem;
+    color:#ffd6d6;
+    margin-bottom:25px;
+}
+
+.hero-text{
+    white-space:pre-line;
+    line-height:2;
+    margin-bottom:25px;
+}
+
+.from{
+    margin-bottom:30px;
+    color:#ffd6d6;
+}
+
+.hero button{
+    border:none;
+    border-radius:50px;
+    padding:15px 35px;
+    font-size:1rem;
+    color:white;
+    cursor:pointer;
+    background:#ff4d6d;
+    transition:.3s;
+    box-shadow:0 10px 30px rgba(255,77,109,.4);
+}
+
+.hero button:hover{
+    transform:translateY(-4px);
+    background:#ff6682;
+}
+
+/* =========================
+   MESSAGE BOTTLE
+========================= */
+
+#bottleSection{
+    padding:100px 20px;
+    text-align:center;
+}
+
+#bottleSection h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.tap-text{
+    opacity:.8;
+    margin-bottom:30px;
+}
+
+#bottleArea{
+    position:relative;
+    width:100%;
+    height:250px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#bottle{
+    font-size:6rem;
+    cursor:pointer;
+    transition:.4s;
+    user-select:none;
+}
+
+#bottle:hover{
+    transform:scale(1.1);
+}
+
+.bottle-break{
+    animation:bottleBreak .7s forwards;
+}
+
+@keyframes bottleBreak{
+
+    0%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(1.8) rotate(25deg);
+        opacity:0;
+    }
+
+}
+
+/* =========================
+   FLOWERS BURST
+========================= */
+
+#flowers{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+.flower{
+    position:absolute;
+    left:50%;
+    top:50%;
+    font-size:2rem;
+    transform:translate(-50%,-50%);
+}
+
+@keyframes flowerBurst{
+
+    0%{
+        opacity:0;
+        transform:
+        translate(-50%,-50%)
+        scale(.3);
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        transform:
+        translate(
+        calc(-50% + var(--x)),
+        calc(-50% + var(--y))
+        )
+        rotate(720deg)
+        scale(1.3);
+    }
+
+}
+
+/* =========================
+   LETTER
+========================= */
+
+#letterContainer{
+    display:none;
+    justify-content:center;
+    margin-top:40px;
+}
+
+.letter-paper{
+    width:90%;
+    max-width:700px;
+    background:#fff8f0;
+    color:#333;
+    padding:35px;
+    border-radius:25px;
+    text-align:left;
+    line-height:2;
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+
+#letterText{
+    white-space:pre-line;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.3rem;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    padding:100px 20px;
+    text-align:center;
+}
+
+.gallery h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.gallery-subtitle{
+    opacity:.8;
+    margin-bottom:35px;
+}
+
+.gallery-grid{
+    max-width:850px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.gallery-grid img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    border-radius:25px;
+    cursor:pointer;
+    transition:.4s;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.gallery-grid img:hover{
+    transform:translateY(-5px);
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz-section{
+    padding:100px 20px;
+    text-align:center;
+}
+
+.quiz-section h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.quiz-section p{
+    margin-bottom:35px;
+}
+
+.question{
+    display:none;
+    max-width:650px;
+    margin:auto;
+    padding:30px;
+    border-radius:25px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+}
+
+.question.active{
+    display:block;
+}
+
+.question h3{
+    margin-bottom:20px;
+}
+
+.question button{
+    width:100%;
+    margin:10px 0;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    color:white;
+    background:rgba(255,255,255,.15);
+    transition:.3s;
+}
+
+.question button:hover{
+    background:#ff4d6d;
+}
+
+.correct{
+    background:#2ecc71 !important;
+}
+
+.wrong{
+    background:#e74c3c !important;
+}
+
+/* =========================
+   SPECIAL PHOTO
+========================= */
+
+#quizSuccess{
+    margin-top:50px;
+}
+
+.special-photo{
+    width:90%;
+    max-width:450px;
+    border-radius:25px;
+    margin:20px 0;
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final{
+    padding:120px 20px;
+    text-align:center;
+}
+
+.final h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.final h3{
+    color:#ffd6d6;
+    margin-bottom:20px;
+}
+
+.final p{
+    white-space:pre-line;
+    max-width:600px;
+    margin:auto;
+    line-height:2;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:2.8rem;
+    }
+
+    .hero h2{
+        font-size:1.6rem;
+    }
+
+    .gallery-grid{
+        gap:12px;
+    }
+
+    .gallery-grid img{
+        height:280px;
+    }
+
+    #bottle{
+        font-size:5rem;
+    }
+
+    .letter-paper{
+        padding:25px;
+    }
+
+    #letterText{
+        font-size:1.1rem;
+    }
+
+}
