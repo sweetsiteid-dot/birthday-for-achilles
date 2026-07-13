@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Achilles ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<audio id="music" loop>
+    <source src="shape-of-my-heart.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PIN SCREEN -->
+
+<div id="pinScreen">
+
+    <div class="pin-box">
+
+        <h1>❤️</h1>
+
+        <h2>Private Birthday Gift</h2>
+
+        <p>Enter PIN</p>
+
+        <input
+            type="password"
+            id="pinInput"
+            readonly
+            placeholder="••••">
+
+        <div class="keypad">
+
+            <button onclick="addPin('1')">1</button>
+            <button onclick="addPin('2')">2</button>
+            <button onclick="addPin('3')">3</button>
+
+            <button onclick="addPin('4')">4</button>
+            <button onclick="addPin('5')">5</button>
+            <button onclick="addPin('6')">6</button>
+
+            <button onclick="addPin('7')">7</button>
+            <button onclick="addPin('8')">8</button>
+            <button onclick="addPin('9')">9</button>
+
+            <button onclick="clearPin()">⌫</button>
+            <button onclick="addPin('0')">0</button>
+            <button onclick="checkPin()">❤️</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- WEBSITE -->
+
+<div id="website" class="hidden">
+
+<!-- COVER -->
+
+<section class="hero">
+
+    <div class="hero-card">
+
+        <p class="mini-title">
+            A Special Birthday Gift
+        </p>
+
+        <h1>Happy Birthday</h1>
+
+        <h2>Achilles ❤️</h2>
+
+        <p class="hero-text">
+
+            Today is all about celebrating
+            your special day.
+
+            I made this little place
+            on the internet just for you.
+
+            I hope it brings a smile
+            to your face.
+
+        </p>
+
+        <p class="from">
+            From Kakak Ian ❤️
+        </p>
+
+        <button onclick="openHeart()">
+            Open My Heart ❤️
+        </button>
+
+    </div>
+
+</section>
+
+<!-- MESSAGE BOTTLE -->
+
+<section id="bottleSection" class="hidden">
+
+    <h2>A Message In A Bottle 🍾</h2>
+
+    <p class="tap-text">
+        Tap the bottle to open it
+    </p>
+
+    <div id="bottleArea">
+
+        <div id="bottle" onclick="breakBottle()">
+            🍾
+        </div>
+
+        <div id="flowers"></div>
+
+    </div>
+
+    <div id="letterContainer">
+
+        <div class="letter-paper">
+
+            <div id="letterText"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+  <!-- GALLERY -->
+
+<section class="gallery">
+
+    <h2>Favorite Memories 📸</h2>
+
+    <p class="gallery-subtitle">
+        Some special moments worth remembering ❤️
+    </p>
+
+    <div class="gallery-grid">
+
+        <img src="foto1.jpg" alt="Photo 1">
+        <img src="foto2.jpg" alt="Photo 2">
+
+        <img src="foto3.jpg" alt="Photo 3">
+        <img src="foto4.jpg" alt="Photo 4">
+
+        <img src="foto5.jpg" alt="Photo 5">
+        <img src="foto6.jpg" alt="Photo 6">
+
+        <img src="foto7.jpg" alt="Photo 7">
+        <img src="foto8.jpg" alt="Photo 8">
+
+        <img src="foto9.jpg" alt="Photo 9">
+        <img src="foto10.jpg" alt="Photo 10">
+
+    </div>
+
+</section>
+
+<!-- QUIZ -->
+
+<section class="quiz-section">
+
+    <h2>❤️ Birthday Quiz ❤️</h2>
+
+    <p>
+        Answer all questions correctly
+        to unlock your special surprise.
+    </p>
+
+    <div id="quizBox">
+
+        <!-- Question 1 -->
+
+        <div class="question active">
+
+            <h3>Who is celebrating a birthday today?</h3>
+
+            <button onclick="checkAnswer(this,false)">
+                Kakak Ian
+            </button>
+
+            <button onclick="checkAnswer(this,true)">
+                Achilles ❤️
+            </button>
+
+            <button onclick="checkAnswer(this,false)">
+                Someone Else
+            </button>
+
+        </div>
+
+        <!-- Question 2 -->
+
+        <div class="question">
+
+            <h3>What is the theme color of this website?</h3>
+
+            <button onclick="checkAnswer(this,false)">
+                Blue
+            </button>
+
+            <button onclick="checkAnswer(this,true)">
+                Red ❤️
+            </button>
+
+            <button onclick="checkAnswer(this,false)">
+                Black
+            </button>
+
+        </div>
+
+        <!-- Question 3 -->
+
+        <div class="question">
+
+            <h3>Who made this birthday gift?</h3>
+
+            <button onclick="checkAnswer(this,true)">
+                Kakak Ian ❤️
+            </button>
+
+            <button onclick="checkAnswer(this,false)">
+                Google
+            </button>
+
+            <button onclick="checkAnswer(this,false)">
+                ChatGPT
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- SPECIAL PHOTO -->
+
+    <div id="quizSuccess" class="hidden">
+
+        <h2>🎉 You Did It! 🎉</h2>
+
+        <img
+            src="special.jpg"
+            class="special-photo"
+            alt="Special Photo">
+
+        <p>
+            A special memory just for you ❤️
+        </p>
+
+    </div>
+
+</section>
+
+<!-- FINAL MESSAGE -->
+
+<section class="final">
+
+    <h2>Happy Birthday ❤️</h2>
+
+    <h3>Achilles</h3>
+
+    <p>
+
+        May your days be filled
+        with happiness,
+        laughter,
+        and endless blessings.
+
+        Happy Birthday, Achilles ❤️
+
+        With love,
+
+        Kakak Ian
+
+    </p>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
