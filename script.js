@@ -93,13 +93,13 @@ function createHearts(){
         heart.innerHTML = "❤️";
 
         heart.style.left =
-        Math.random() * 100 + "%";
+        Math.random()*100 + "%";
 
         heart.style.fontSize =
-        (Math.random() * 20 + 15) + "px";
+        (Math.random()*20 + 15) + "px";
 
         heart.style.animationDuration =
-        (Math.random() * 4 + 5) + "s";
+        (Math.random()*4 + 5) + "s";
 
         hearts.appendChild(heart);
 
@@ -122,7 +122,9 @@ function breakBottle(){
     const bottle =
     document.getElementById("bottle");
 
-    bottle.classList.add("bottle-break");
+    bottle.classList.add(
+        "bottle-break"
+    );
 
     createFlowerBurst();
 
@@ -218,7 +220,7 @@ always be with you.
 Thank you for being you.
 
 Enjoy your day
-and keep smiling. ❤️
+and keep smiling ❤️
 
 With love,
 
@@ -239,18 +241,28 @@ Kakak Ian ❤️
 let currentQuestion = 0;
 
 const questions =
-document.querySelectorAll(".question");
+document.querySelectorAll(
+    ".question"
+);
 
-function checkAnswer(button,isCorrect){
+function checkAnswer(
+    button,
+    isCorrect
+){
 
     if(isCorrect){
 
-        button.classList.add("correct");
+        button.classList.add(
+            "correct"
+        );
 
         setTimeout(()=>{
 
-            questions[currentQuestion]
-            .classList.remove("active");
+            questions[
+                currentQuestion
+            ].classList.remove(
+                "active"
+            );
 
             currentQuestion++;
 
@@ -259,20 +271,36 @@ function checkAnswer(button,isCorrect){
                 questions.length
             ){
 
-                questions[currentQuestion]
-                .classList.add("active");
+                questions[
+                    currentQuestion
+                ].classList.add(
+                    "active"
+                );
 
             }else{
 
-                document.getElementById(
-                    "quizSuccess"
-                ).classList.remove("hidden");
+                createExplosion();
 
-                document.getElementById(
-                    "quizSuccess"
-                ).scrollIntoView({
-                    behavior:"smooth"
-                });
+                setTimeout(()=>{
+
+                    document
+                    .getElementById(
+                        "quizSuccess"
+                    )
+                    .classList
+                    .remove(
+                        "hidden"
+                    );
+
+                    document
+                    .getElementById(
+                        "quizSuccess"
+                    )
+                    .scrollIntoView({
+                        behavior:"smooth"
+                    });
+
+                },1800);
 
             }
 
@@ -280,13 +308,119 @@ function checkAnswer(button,isCorrect){
 
     }else{
 
-        button.classList.add("wrong");
+        button.classList.add(
+            "wrong"
+        );
 
         setTimeout(()=>{
 
-            button.classList.remove("wrong");
+            button.classList.remove(
+                "wrong"
+            );
 
         },700);
+
+    }
+
+}
+
+// ======================
+// FINAL EXPLOSION
+// ======================
+
+function createExplosion(){
+
+    const emojis = [
+        "❤️",
+        "💖",
+        "💝",
+        "✨",
+        "🎉",
+        "🌹"
+    ];
+
+    document.body.animate([
+        {
+            transform:"translateX(-5px)"
+        },
+        {
+            transform:"translateX(5px)"
+        },
+        {
+            transform:"translateX(-5px)"
+        },
+        {
+            transform:"translateX(0)"
+        }
+    ],{
+        duration:300
+    });
+
+    for(let i=0;i<50;i++){
+
+        const item =
+        document.createElement(
+            "div"
+        );
+
+        item.innerHTML =
+        emojis[
+            Math.floor(
+                Math.random() *
+                emojis.length
+            )
+        ];
+
+        item.style.position =
+        "fixed";
+
+        item.style.left =
+        "50%";
+
+        item.style.top =
+        "50%";
+
+        item.style.fontSize =
+        "2rem";
+
+        item.style.pointerEvents =
+        "none";
+
+        item.style.zIndex =
+        "9999";
+
+        document.body
+        .appendChild(item);
+
+        const x =
+        (Math.random()*1000)
+        -500;
+
+        const y =
+        (Math.random()*800)
+        -400;
+
+        item.animate([
+        {
+            transform:
+            "translate(0,0) scale(.3)",
+            opacity:1
+        },
+        {
+            transform:
+            `translate(${x}px,${y}px) scale(1.5)`,
+            opacity:0
+        }
+        ],{
+            duration:1800,
+            easing:"ease-out"
+        });
+
+        setTimeout(()=>{
+
+            item.remove();
+
+        },1800);
 
     }
 
